@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Method </title>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+ 
+    <div class="container">
+        <h1 class="alert alert-info m-4"> Filter, Find & Reduce Methods</h1>
+        <hr>
+        <h3 class="alert alert-warning">1. </h3>
+        <p>
+            - usecase of Filter method
+            <br>
+            - when You have to create / return a new array from given array with atleast one condition
+            <br>
+            - New array will include the elements which pass / fulfill the given condition
+            <br>
+            - In case of Filter, It may / may not return new array with the same length ( It depends on the given condition )
+            <br>
+            - Higher Order function >> A function which accepts another function as a parameter / arguement
+            <br>
+            - callback functions >> a function which is used / passed as a paramter inside of another function
+            
+            <br><br> 
+
+            - usecase of Find method
+            <br>
+            - when you know you're going to return only 1 Object ( not an array ) after fulfilling one condition
+            <br>
+            - only one object can satisfy the condition among all the objects in an array of many objects
+           
+            <br><br> 
+          
+
+            <b>*</b> Function, ForEach, Arrow function in Filter Method 
+            <br>
+            --- Output -->
+                <script>
+
+                    ages = [ 13, 16, 18, 24, 34, 47, 52, 68, 74, 85 ];
+
+                    // let adults = [];
+
+                    // for ( i=0; i < ages.length; i++ ) {
+                    //     if ( ages[i] >= 18 ) {
+                    //         // ages[i] = ages[i] + 4;
+                    //         adults.push(ages[i]);
+                    //     }
+                    // }
+
+                    // ages.forEach( (ag) => { 
+                    //     if( ag >= 18 ) {
+                    //         adults.push(ag);
+                    //     }
+                    //  } );
+
+                    // let adults = ages.filter( (ag) => {
+                    //     if ( ag >= 18 ) {
+                    //         // return ag;
+                    //         return true;
+                    //     }
+                    //     else {
+                    //         return false;
+                    //     }
+                    // } );
+
+                    //  let adults = ages.filter( (ag) => {
+                    //     if ( ag >= 23 ) {
+                    //         // return ag;
+                    //         // return ag = ag + 2 ; // It works in map method but not here in filter method
+                    //     }
+                    //     else {
+                    //         return false;
+                    //     }
+                    // } );
+
+                    // let adults = ages.filter( (ag) => { return ag >= 18 } );
+
+                    // let adults = ages.filter( (ag) => { if ( ag >= 18) { ag = ag +4; return ag; } } );
+                   
+                    let adults1 = ages.filter( (ad1) => { if ( ad1 > 28 ) { return ad1 = ad1 + 10; } else { return false; } });
+
+                    document.write(` ${ adults1 } `);
+
+
+            let companies = [
+                { name: "Company One", category: "Finance", start: 1981, end: 2003 },
+                { name: "Company Two", category: "Retail", start: 1992, end: 2008 },
+                { name: "Company Three", category: "Auto", start: 1999, end: 2007 },
+                { name: "Company Four", category: "Retail", start: 1989, end: 2010 },
+                { name: "Company Five", category: "Technology", start: 2009, end: 2014 },
+                { name: "Company Six", category: "Finance", start: 1987, end: 2010 },
+                { name: "Company Seven", category: "Auto", start: 1986, end: 1996 },
+                { name: "Company Eight", category: "Technology", start: 2011, end: 2016 },
+                { name: "Company Nine", category: "Retail", start: 1981, end: 1989 }
+            ];
+
+            // let compRetail = [];
+
+            // for ( j=0; j < companies.length; j++ ) {
+            //     if ( companies[j].category.toLowerCase().trim() === 'retail' ) {
+            //         compRetail.push(companies[j]);
+            //     }
+            // }
+
+            // companies.forEach( (cr) => { 
+            //     if ( cr.category.toLowerCase().trim() === 'retail' ) {
+            //         compRetail.push(cr);
+            //     }
+            //  } );
+
+            let compRetail = companies.filter( cr => { return cr.category.toLowerCase().trim() === 'retail' } );
+
+            document.write(` <br> ${ compRetail[1].name } `);
+
+
+            // comp10plus = [];
+
+            // for ( k=0; k < companies.length; k++ ) {
+            //     if ( companies[k].end - companies[k].start >= 10 ) {
+            //         comp10plus.push(companies[k]);
+            //     }
+            // }
+
+            // companies.forEach( (cmp) => {
+            //     if ( cmp.end - cmp.start >= 10 ) {
+            //         comp10plus.push(cmp);
+            //     }
+            // } );
+
+            let comp10plus = companies.filter( (cmp) => { 
+                return cmp.end - cmp.start >= 10;
+             } );
+
+            document.write(` <br> ${ comp10plus[3].name } | ${ comp10plus.length } `);
+
+                </script>
+            <br>
+            <br>
+            
+            <b>*</b> Find Method
+            <br>
+            --- Output -->
+            <br>
+
+            <script>
+            
+            let companies2 = [
+                {id: '1', name: "Company One", category: "Finance", start: 1981, end: 2003 },
+                {id: '2', name: "Company Two", category: "Retail", start: 1992, end: 2008 },
+                {id: '3', name: "Company Three", category: "Auto", start: 1999, end: 2007 },
+                {id: '4', name: "Company Four", category: "Retail", start: 1989, end: 2010 },
+                {id: '5', name: "Company Five", category: "Technology", start: 2009, end: 2014 },
+                {id: '6', name: "Company Six", category: "Finance", start: 1987, end: 2010 },
+                {id: '7', name: "Company Seven", category: "Auto", start: 1986, end: 1996 },
+                {id: '8', name: "Company Eight", category: "Technology", start: 2011, end: 2016 },
+                {id: '9', name: "Company Nine", category: "Retail", start: 1981, end: 1989 }
+            ];
+
+            // let arrayComp2 = [];
+
+            // for ( let i=0; i < companies2.length; i++ ) {
+            //     arrayComp2.push(
+            //         {
+            //             id : companies2[i].id,
+            //             name : companies2[i].name,
+            //             duration : ` ${ companies2[i].start } - ${ companies[i].end } ` 
+            //         }
+            //     );
+            // }
+
+            // companies2.forEach( comp2 => {
+            //     arrayComp2.push( {
+            //         id : comp2.id,
+            //         name : comp2.name,
+            //         duration : ` ${ comp2.start } - ${ comp2.end }`
+            //     } )
+            // } );
+
+            let arrayComp2 = companies2.map( comp => {
+                return {
+                    id : comp.id,
+                    name : comp.name,
+                    duration : ` ${ comp.start } - ${ comp.end } `
+                }
+            } );
+
+            let arrayComp3 = companies.filter( comp3 => comp3.start > 1990 );
+
+            let arrayComp4 = companies.filter( comp5 => comp5.start > 2000 ).map( comp4 => { return { id : comp4.id, name : comp4.name } } );
+
+            document.write(` ${ arrayComp2[1].duration } | ${ arrayComp3.length } | ${ arrayComp4[0].name }`);
+
+            getId = 4;
+
+            // for ( let f=0; f < companies2.length; f++ ) {
+
+            //     if ( companies2[f].id === '4' ) {
+
+            //         foundObj = companies2[f];
+
+            //     }
+
+            // }
+
+            // companies2.forEach ( comp2 => {
+            //     if ( +comp2.id === getId )
+            //     {
+            //         foundObj = comp2;
+            //     }
+            // } );
+
+            foundObj = companies2.filter( comp3 => comp3.id === '4' );
+
+            document.write(` | ${ JSON.stringify(foundObj) } | ${ JSON.stringify(foundObj[0]) } `);
+
+            foundObj2 = companies2.find( comp4 => comp4.id === '7' );
+
+            document.write(` | ${ JSON.stringify(foundObj2) } `);
+
+            </script>
+            
+  
+            <br>
+            <br>
+
+            <b>*</b> Reduce Method
+            <br>
+            --- Output -->
+            <br>
+
+            <script>
+            
+            let companies3 = [
+                {id: '1', name: "Company One", category: "Finance", start: 1981, end: 2003 },
+                {id: '2', name: "Company Two", category: "Retail", start: 1992, end: 2008 },
+                {id: '3', name: "Company Three", category: "Auto", start: 1999, end: 2007 },
+                {id: '4', name: "Company Four", category: "Retail", start: 1989, end: 2010 },
+                {id: '5', name: "Company Five", category: "Technology", start: 2009, end: 2014 },
+                {id: '6', name: "Company Six", category: "Finance", start: 1987, end: 2010 },
+                {id: '7', name: "Company Seven", category: "Auto", start: 1986, end: 1996 },
+                {id: '8', name: "Company Eight", category: "Technology", start: 2011, end: 2016 },
+                {id: '9', name: "Company Nine", category: "Retail", start: 1981, end: 1989 }
+            ];
+
+            let totalDuration = companies3.reduce( ( total, dura ) => {
+                return total = total + dura.end - dura.start;
+            }, 0 );
+
+            document.write(` ${ totalDuration } <br> `);
+
+            console.log(totalDuration);
+
+            let compNamesDuration = companies3.reduce( ( accu, itrtr ) => { 
+                accu.push({ 
+                    name : itrtr.name,
+                    dura : itrtr.end - itrtr.start
+                 });
+                return accu;
+             }, [] );
+
+             document.write(` ${ compNamesDuration[0].name } | ${ compNamesDuration[0].dura } <br> `);
+          
+             console.log(compNamesDuration);
+
+            let scores = [10,20,30,40,50,60,70,80,90];
+
+            let totalScores = scores.reduce( (accum, total) => {
+                return accum += total;
+            } , 0 );
+
+            let avgScores = scores.reduce( ( scr, multi ) => { 
+                return scr = scr * multi ;
+            } , 1  );    
+
+            document.write(` ${ totalScores } | ${ avgScores }`);
+
+            </script>
+            
+  
+            <br>
+            <br>
+
+        </p>
+        <br>
+        <h3 class="alert alert-warning">Assignment</h3>
+        <p>
+           --
+            <br>
+           
+            <b>Ex.1 - For, ForEach, Arrow, Map & Filter</b>
+            <br> 
+            <br>
+            Output - --> 
+            <br>
+            <script>
+            
+            let scooters = [
+                {
+                    model : 'Activa',
+                    distance : 90,
+                    fuel : 2,
+                    mileage : function () {
+                        return this.distance / this.fuel;
+                    }
+                },
+                {
+                    model : 'Jupiter',
+                    distance : 40,
+                    fuel : 0.8,
+                    mileage : function () {
+                        return this.distance / this.fuel;
+                    }
+                },
+                {
+                    model : 'Access',
+                    distance : 135,
+                    fuel : 4.5,
+                    mileage : function () {
+                        return this.distance / this.fuel;
+                    }
+                },
+            ];
+
+            // let scootersLife = [];
+
+            // for ( var s = 0; s < scooters.length; s++ ) {
+            //     scootersLife.push( { model : scooters[s].model, mileage : scooters[s].mileage(), life : scooters[s].mileage() * 2000 } );
+            // }
+
+            // scooters.forEach( (sct) => scootersLife.push( { model : sct.model, mileage : sct.mileage(), life : sct.mileage() * 2000 } ) );
+
+            let scootersLife = scooters.map( (sct) => { return { model : sct.model, mileage : sct.mileage(), life : sct.mileage() * 2000 } } );
+
+            let scooters80kkm = scootersLife.filter( (skl) => { 
+                if ( skl.life > 80000 ) {
+                    return skl.life = skl.life + 111;
+                    // return true;
+                }
+                else {
+                    return false;
+                }
+             } );
+
+            document.write(` ${ scooters[2].mileage() } | ${ scootersLife[2].life } <br>`);
+
+            scooters80kkm.forEach( (s80) => document.write(` ${ s80.model } - ${ s80.life } <br> `) );
+
+            </script>
+            <br>
+            <br>
+
+            <b>Ex.2 -</b> 
+            <br> 
+            <br>
+            Output - --> 
+            <script>
+            
+            // let comp80s = [];
+
+            // for ( var zx = 0; zx < companies.length; zx++ ){
+            //     if ( companies[zx].start >= 1980 && companies[zx].start <= 1989  ) {
+            //         comp80s.push( { name : companies[zx].name, duration : companies[zx].end - companies[zx].start  } );
+            //     }
+            // }
+
+            // companies.forEach( comp => {
+            // if ( comp.start >= 1980 && comp.start <= 1989 ) {
+            //     comp80s.push( {
+            //         name : comp.name,
+            //         duration : comp.end - comp.start
+            //     });
+            // } 
+            // });
+
+            let comp80s = companies.filter( comp => { return comp.start >= 1980 && comp.start <= 1989 } )
+                                   .map( comp => {  return { name : comp.name, duration : comp.end - comp.start } } );
+
+            document.write(` <br> ${ comp80s[1].name } | ${ comp80s[1].duration } `);
+
+            </script>
+            <br>
+            <br>
+
+            <b>Ex.3 -</b>
+            <br> 
+            <br>
+            Output - --> 
+            <script>
+            
+            let compFinance  = [];
+
+            // companies.forEach( com => { 
+            //     if ( com.category.toLowerCase().trim() === 'finance' ) { 
+            //         compFinance.push(
+            //             {
+            //                 name : com.name,
+            //                 years : ` ${ com.start } - ${ com.end } `
+            //             }
+            //         );
+            // } } );
+
+            compFinance = companies.filter( com => com.category.toLowerCase().trim() === 'finance' )
+                                    .map( com =>
+                                        { 
+                                            return { 
+                                                name : com.name,
+                                                years : ` ${ com.start } - ${ com.end } `
+                                             } 
+                                        }
+                                         )
+
+             document.write(` ${ compFinance[0].name } | ${ compFinance[0].years } `);
+
+             let companies10plus = [];
+
+             companies.forEach( cmp => {
+                        if ( cmp.end - cmp.start >= 10 ) {
+                            companies10plus.push({ name : cmp.name, category : cmp.category });
+                        } 
+                }
+             );
+
+            //  let companies10plus = companies.filter( cp => cp.end - cp.start >= 10 )
+            //                                 .map( cm => { return { name : cm.name, category : cm.category } } );
+
+             document.write(` <br> ${ companies10plus[2].name } | ${ companies10plus[2].category } `);
+
+
+            </script>
+            <br>
+            <br>
+            
+        </p>
+
+      
+    </div>
+
+
+</body>
+</html>
